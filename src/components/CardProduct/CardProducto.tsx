@@ -3,7 +3,7 @@ import { FaShoppingCart } from "react-icons/fa";
 
 const CardProduct = (product: Product) => {
 	const buyProduct = async () => {
-		const modalValidateCard = document.getElementById("validation-credit-card") as HTMLDialogElement;
+		const modalValidateCard = document.getElementById("start-transaction") as HTMLDialogElement;
 		modalValidateCard.showModal();
 	};
 	return (
