@@ -1,4 +1,5 @@
 import "./App.css";
+import CreateTransaction from "./components/CreateTransaction/CreateTransaction";
 import CreditCardValidator from "./components/CreditCardValidator/CreditCardValidator";
 import FormTermConditions from "./components/FormTermConditions/FormTermConditions";
 import Modal from "./components/Modal/Modal";
@@ -16,7 +17,7 @@ function App() {
 				<Products />
 
 				<Modal id='start-transaction'>
-					{step === 1 && <h1>Step 1</h1>}
+					{step === 1 && <CreateTransaction />}
 					{step === 2 && <FormTermConditions />}
 					{step === 3 && <CreditCardValidator />}
 				</Modal>
