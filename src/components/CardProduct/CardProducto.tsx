@@ -2,6 +2,10 @@ import { Product } from "../../interfaces/product.interface";
 import { FaShoppingCart } from "react-icons/fa";
 
 const CardProduct = (product: Product) => {
+	const buyProduct = async () => {
+		const modalValidateCard = document.getElementById("validation-credit-card") as HTMLDialogElement;
+		modalValidateCard.showModal();
+	};
 	return (
 		<div className='card w-full  bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100'>
 			<figure className='relative overflow-hidden'>
@@ -26,7 +30,9 @@ const CardProduct = (product: Product) => {
 						}`}>
 						{product.stock > 5 ? "En stock" : `Quedan ${product.stock}`}
 					</span>
-					<button className='btn btn-primary btn-sm normal-case rounded-full px-4 flex items-center gap-2 hover:scale-105 transition-transform'>
+					<button
+						className='btn btn-primary btn-sm normal-case rounded-full px-4 flex items-center gap-2 hover:scale-105 transition-transform'
+						onClick={buyProduct}>
 						<FaShoppingCart className='text-sm' /> Comprar
 					</button>
 				</div>
