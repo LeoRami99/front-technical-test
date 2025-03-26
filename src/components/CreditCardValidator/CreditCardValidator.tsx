@@ -26,7 +26,7 @@ const CreditCardValidator = () => {
 			loading: "Validating card...",
 			success: (res: any) => {
 				setTokenCard(res.data.id);
-				setStep(2);
+				setStep(4);
 				setLoading(false);
 				return "Card validated successfully";
 			},
