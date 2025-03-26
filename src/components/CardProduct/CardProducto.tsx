@@ -3,7 +3,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useProduct } from "../../stores/useTransaction";
 
 const CardProduct = (product: Product) => {
-	const { setProductId, setPrice } = useProduct();
+	const { setProductId, setPrice, setName } = useProduct();
 	const buyProduct = async () => {
 		const modalValidateCard = document.getElementById("start-transaction") as HTMLDialogElement;
 		modalValidateCard.showModal();
@@ -38,6 +38,7 @@ const CardProduct = (product: Product) => {
 							buyProduct();
 							setProductId(product.id);
 							setPrice(product.price);
+							setName(product.name);
 						}}>
 						<FaShoppingCart className='text-sm' /> Comprar
 					</button>
