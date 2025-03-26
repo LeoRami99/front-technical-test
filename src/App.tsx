@@ -1,4 +1,5 @@
 import "./App.css";
+import ConfirmTransaction from "./components/ConfirmTransaction/ConfirmTransaction";
 import CreateTransaction from "./components/CreateTransaction/CreateTransaction";
 import CreditCardValidator from "./components/CreditCardValidator/CreditCardValidator";
 import FormTermConditions from "./components/FormTermConditions/FormTermConditions";
@@ -20,6 +21,7 @@ function App() {
 					{step === 1 && <CreateTransaction />}
 					{step === 2 && <FormTermConditions />}
 					{step === 3 && <CreditCardValidator />}
+					{step === 4 && <ConfirmTransaction />}
 				</Modal>
 			</div>
 		</>
