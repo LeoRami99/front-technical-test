@@ -6,8 +6,9 @@ const CreateTransaction = () => {
 	const [loading, setLoading] = useState(false);
 	interface FormValues {
 		amount: number;
+		installments: number;
 	}
-	const { setAmount } = useProduct();
+	const { setAmount, setInstallments } = useProduct();
 	const { setStep } = useSteps();
 	const {
 		register,
@@ -19,6 +20,7 @@ const CreateTransaction = () => {
 		setLoading(true);
 		if (data.amount) {
 			setAmount(data.amount);
+			setInstallments(data.installments);
 			setStep(2);
 			setLoading(false);
 		}
@@ -34,6 +36,22 @@ const CreateTransaction = () => {
 					</label>
 					<input type='number' id='amount' required {...register("amount")} className='w-full input' disabled={loading} />
 					{errors.amount && <span className='text-red-500'>This field is required</span>}
+				</div>
+				<div className='space-y-2'>
+					<label htmlFor='installments' className='block text-sm font-medium text-gray-700'>
+						Installments
+					</label>
+					<input
+						type='number'
+						id='installments'
+						required
+						{...register("installments")}
+						className='w-full input'
+						disabled={loading}
+						min={1}
+						max={24}
+					/>
+					{errors.installments && <span className='text-red-500'>This field is required</span>}
 				</div>
 				<button type='submit' className='w-full btn btn-primary' disabled={loading}>
 					Next
