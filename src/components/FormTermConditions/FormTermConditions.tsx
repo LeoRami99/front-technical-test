@@ -19,7 +19,6 @@ const FormTermConditions = () => {
 	useEffect(() => {
 		getInfoTermConditions()
 			.then((res: RootResponse) => {
-				console.log(res.data);
 				setData(res);
 			})
 			.catch((error) => {
