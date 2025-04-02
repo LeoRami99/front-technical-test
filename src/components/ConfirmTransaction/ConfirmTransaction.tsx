@@ -3,6 +3,7 @@ import { useProduct, useCardToken, useTermsConditions } from "../../stores/useTr
 import toast from "react-hot-toast";
 import { createTransaction } from "../../services/transaction.service";
 import { useNavigate } from "react-router";
+import { IVA } from "../../consts/consts.tax";
 
 const ConfirmTransaction = () => {
 	const { amount, methodPayment, price, installments, name, userId, productId } = useProduct();
@@ -10,6 +11,9 @@ const ConfirmTransaction = () => {
 	const { acceptedToken } = useTermsConditions();
 
 	const [totalPay] = useState(amount * price);
+
+	const ivaData = totalPay * IVA;
+
 	const navigate = useNavigate();
 
 	const onSubmitTransaction = () => {
@@ -67,10 +71,14 @@ const ConfirmTransaction = () => {
 						<span className='font-medium'>{installments}</span>
 					</div>
 				)}
+				<div className='flex justify-between pt-4 border-t font-bold'>
+					<span>IVA:</span>
+					<span>${ivaData.toFixed(0)}</span>
+				</div>
 
 				<div className='flex justify-between pt-4 border-t font-bold'>
-					<span>Total Pay:</span>
-					<span>${totalPay}</span>
+					<span>Total Pay With IVA:</span>
+					<span>${(totalPay + ivaData).toFixed(0)}</span>
 				</div>
 			</div>
 
